@@ -37,22 +37,41 @@ export const SwapCard = ({ selectedChain }: SwapCardProps) => {
   return (
     <div className="w-full max-w-[1800px] mx-auto p-6 bg-card rounded-xl border border-border">
       <div className="relative">
-        {/* Overlay to cover the top part of Uniswap interface */}
-        <div className="absolute top-0 left-0 right-0 h-[280px] bg-background z-10 rounded-t-xl border-b border-border pointer-events-none" />
+        {/* Editable Overlay - You can adjust height by editing the style below */}
+        <div 
+          className="absolute top-0 left-0 right-0 bg-background z-10 rounded-t-xl border-b border-border pointer-events-none flex items-center justify-center"
+          style={{ height: '280px' }}
+        >
+          {/* You can edit this text or the entire overlay using Visual Edits */}
+          <p className="text-muted-foreground text-sm opacity-0 hover:opacity-100 transition-opacity">
+            Overlay Height: 280px
+          </p>
+        </div>
 
-        <iframe
-          src={getSwapUrl()}
-          height="1320px"
-          width="100%"
-          style={{
-            border: 0,
-            margin: '0 auto',
-            display: 'block',
-            borderRadius: '10px',
-            minWidth: '300px',
-          }}
-          title={`${selectedChain} Swap Interface`}
-        />
+        {/* Editable iframe container - You can adjust height by editing the style below */}
+        <div 
+          className="w-full relative"
+          style={{ height: '1320px' }}
+        >
+          {/* You can edit this text to show iframe height using Visual Edits */}
+          <p className="absolute bottom-2 right-2 z-20 text-muted-foreground text-xs bg-background/80 px-2 py-1 rounded opacity-0 hover:opacity-100 transition-opacity">
+            iframe Height: 1320px
+          </p>
+          
+          <iframe
+            src={getSwapUrl()}
+            height="100%"
+            width="100%"
+            style={{
+              border: 0,
+              margin: '0 auto',
+              display: 'block',
+              borderRadius: '10px',
+              minWidth: '300px',
+            }}
+            title={`${selectedChain} Swap Interface`}
+          />
+        </div>
       </div>
     </div>
   );
