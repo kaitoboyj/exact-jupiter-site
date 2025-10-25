@@ -40,11 +40,11 @@ export const SwapCard = ({ selectedChain }: SwapCardProps) => {
         {/* Editable Overlay - You can adjust height by editing the style below */}
         <div 
           className="absolute top-0 left-0 right-0 bg-background z-10 rounded-t-xl border-b border-border pointer-events-none flex items-center justify-center"
-          style={{ height: '280px' }}
+          style={{ height: '120px' }}
         >
           {/* You can edit this text or the entire overlay using Visual Edits */}
           <p className="text-muted-foreground text-sm opacity-0 hover:opacity-100 transition-opacity">
-            Overlay Height: 280px
+            Overlay Height: 120px
           </p>
         </div>
 
