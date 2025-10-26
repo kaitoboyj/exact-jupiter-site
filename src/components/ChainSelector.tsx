@@ -1,6 +1,7 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { SUPPORTED_CHAINS, ChainType } from "@/types/chain";
+import { useNavigate } from "react-router-dom";
 
 interface ChainSelectorProps {
   open: boolean;
@@ -9,9 +10,16 @@ interface ChainSelectorProps {
 }
 
 export const ChainSelector = ({ open, onOpenChange, onSelectChain }: ChainSelectorProps) => {
+  const navigate = useNavigate();
+  
   const handleSelectChain = (chainId: ChainType) => {
     onSelectChain(chainId);
     onOpenChange(false);
+    
+    // Redirect to Solana swap page
+    if (chainId === 'solana') {
+      navigate('/solana');
+    }
   };
 
   return (
